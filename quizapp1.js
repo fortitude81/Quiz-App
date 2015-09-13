@@ -1,31 +1,29 @@
-//quiz begins, no answers correct
-var correct = 0;
+var questions = [
+  ['What is the 2nd planet from the sun?', 'Venus'],
+  ['What is the largest continent?', 'Antarctica'],
+  ['What animal rhymes with fog?', 'dog'],
+  ['What vigilante is known as The Dark Knight', 'Batman'],
+  ['In what continent is France?', 'Europe']
+];
+var correctAnswers = 0;
+var question;
+var answer;
+var response;
 
-// ask questions
-var answer1 = prompt('What is the 2nd planet from the sun?');
-if ( answer1() == "Venus" ) {
-	correct += 1;
+function print(message) {
+  var outputDiv = document.getElementById('output');
+  outputDiv.innerHTML = message;
 }
 
-var answer2 = prompt('What continent is the least populated?');
-if ( answer2() == "Antarctica" ){
-	correct += 1;
+for (var i = 0; i < questions.length; i += 1) {
+  question = questions[i][0];
+  answer = questions[i][1];
+  response = prompt(question);
+  response = parseInt(response);
+  if (response === answer) {
+    correctAnswers += 1;
+  }
 }
 
-var answer3 = prompt('What animal rhymes with fog?');
-if ( answer3() == "dog"){
-	correct += 1;
-}
-
-var answer4 = prompt('What vigilante is known as The Dark Knight');
-if (answer4() = "Batman"){
-	correct +=1;
-}
-
-var answer5 = prompt('In what continent is France?');
-if (answer5() = "Europe"){
-	correct +=1;
-}
-
-//output results
-document.write("<p>You got " + correct + " out of 5 questions correct.<p>");
+html = "You got " + correctAnswers + " question(s) right."
+print(html);
